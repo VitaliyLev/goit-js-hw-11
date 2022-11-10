@@ -1,2 +1,14 @@
-@import './common';
-@import './example';
+//normalize + variables
+@import './utils/common';
+@import './utils/variables';
+@import './base/base';
+
+//container
+@import './base/container';
+
+//loyout
+@import './layout/header';
+
+@import './layout/main';
+
+@import './layout/footer';
