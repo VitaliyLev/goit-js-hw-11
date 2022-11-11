@@ -1,4 +1,41 @@
 .header {
-  background-color: red;
+  display: flex;
+  justify-content: space-around;
+
+  align-items: center;
+
   height: 100px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  position: fixed;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+
+  color: #ff8b88;
+}
+
+.header__list {
+  display: flex;
+}
+
+.header__item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.header__item a {
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 20px;
+}
+
+.header__item a:hover,
+.header__item a:active {
+  color: #ff8b88;
 }

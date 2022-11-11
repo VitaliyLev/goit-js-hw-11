@@ -1,8 +1,8 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
-  // box-sizing: border-box;
+  // box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 /* скидаєм всі відступи з блокових елементів */
@@ -28,11 +28,7 @@ body {
   line-height: 25px;
 
   scroll-behavior: smooth;
-
-  // розкидаєм футер i хедер
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  background-color: #F7CAC9;
 }
 
 /* скидаєм відступ від картинки вниз, ширина макс віз 100% */
@@ -72,54 +68,3 @@ ul {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-
-// address {
-//   font-style: normal;
-// }
-
-// button {
-//   background: none;
-//   outline: none;
-//   border: none;
-// }
-
-// section {
-//   min-width: 100%;
-// }
-
-//приклад медіа запитів
-// body {
-// background-image: url(/src/images/background-mobile.png),
-//   linear-gradient(
-//     180.11deg,
-//     #e5e2e3 10.73%,
-//     #fdfefe 38.02%,
-//     #e5e2e3 71.11%,
-//     #fdfefe 99.91%
-//   );
-// @media screen and (min-width: 768px) {
-//   background-image: url(/src/images/background-tablet.png),
-//     linear-gradient(
-//       180.11deg,
-//       #e5e2e3 10.73%,
-//       #fdfefe 38.02%,
-//       #e5e2e3 71.11%,
-//       #fdfefe 99.91%
-//     );
-// }
-// @media screen and (min-width: 1280px) {
-//   background-image: url(/src/images/background-mobile.png),
-//     linear-gradient(
-//       180.11deg,
-//       #e5e2e3 10.73%,
-//       #fdfefe 38.02%,
-//       #e5e2e3 71.11%,
-//       #fdfefe 99.91%
-//     );
-// }
-
-// background-repeat: no-repeat;
-// background-size: cover;
-
-// cursor: url('/src/images/donut-mause.png'), pointer;
-// }
