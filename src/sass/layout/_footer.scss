@@ -5,7 +5,11 @@
   left: 0;
 
   background-color: rgb(41, 12, 85);
-  height: 100px;
+  height: 80px;
+
+  @media screen and (min-width: 768px) {
+    height: 100px;
+  }
 }
 
 .text {
