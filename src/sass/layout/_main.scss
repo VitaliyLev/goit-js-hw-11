@@ -1,16 +1,21 @@
-.main__section {
+.main .container {
   padding-top: 115px;
+  padding-bottom: 115px;
+}
+
+.main__section {
+  // padding-top: 115px;
   padding-bottom: 15px;
 
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    padding-top: 115px;
+    // padding-top: 115px;
     padding-bottom: 15px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding-top: 130px;
+    // padding-top: 130px;
     padding-bottom: 30px;
   }
 }
@@ -93,4 +98,13 @@
   @media screen and (min-width: 1280px) {
 
   }
+}
+
+.searchbtns {
+  display: inline-flex;
+  align-items: center;
+}
+
+.disablet {
+  display: none;
 }

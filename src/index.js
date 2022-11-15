@@ -7,7 +7,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const refs = {
   markupEl: document.querySelector('.gallery'),
   formSubmitEl: document.querySelector('#search-form'),
-  imgPlus: document.querySelector('.searchbtns'),
+  loadMoreBtn: document.querySelector('.searchbtns'),
 };
 
 const URL = 'https://pixabay.com/api/?key=';
@@ -74,16 +74,8 @@ function handleSubmit(e) {
     return;
   }
 
-  responseApiImg.getImages().then(image => {
-    if (image.hits.length === 0) {
-      Notify.warning(
-        'Sorry, there are no images matching your search query. Please try again.'
-      );
-      return;
-    }
-  });
-
   renderImgMarkup();
+  loadMore ();
   responseApiImg.incrementPage();
 }
 
@@ -116,6 +108,7 @@ function renderHtmlMurkup({ hits }) {
     )
     .join('');
   refs.markupEl.insertAdjacentHTML('beforeend', markup);
+
 }
 
 function handlePlus(e) {
@@ -124,15 +117,32 @@ function handlePlus(e) {
   responseApiImg.incrementPage();
 }
 
-refs.imgPlus.addEventListener('click', handlePlus);
+refs.loadMoreBtn.addEventListener('click', handlePlus);
 
 //функція обробки відповіді з сервера
 async function renderImgMarkup() {
   try {
     const mark = await responseApiImg.getImages();
+
+    if (mark.hits.length === 0) {
+      Notify.warning(
+        'Sorry, there are no images matching your search query. Please try again.'
+      );
+      return;
+    }
     // return renderImgMurkup(mark);
     renderHtmlMurkup(mark);
   } catch (error) {
     console.log(error.message);
   }
+}
+
+
+function loadMore () {
+  // .disablet
+
+  refs.loadMoreBtn.classList.remove('disablet')
+  // refs.loadMoreBtn.classList.toggle('disablet')
+  // refs.markupEl.insertAdjacentHTML();
+  // refs.markupEl.insertAdjacentHTML('beforeend', '<button type="button" class="searchbtns disablet">load-more</button>');
 }
