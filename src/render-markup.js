@@ -1,19 +1,22 @@
-import {refs} from './refs-html-el'
+import { refs } from './refs-html-el';
+
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 //рендер розмітки html
-export default function renderHtmlMurkup({ hits }) {
-    const markup = hits
-      .map(
-        ({
-          webformatURL,
-          largeImageURL,
-          tags,
-          likes,
-          views,
-          comments,
-          downloads,
-        }) =>
-          `<a class="gallery__link" href="${largeImageURL}">
+function renderHtmlMurkup({ hits }) {
+  const markup = hits
+    .map(
+      ({
+        webformatURL,
+        largeImageURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      }) =>
+        `<a class="gallery__link" href="${largeImageURL}">
               <div class="photo-card">
                   <img src="${webformatURL}" alt="${tags}" loading="lazy" width="220" height="240"/>
                   <div class="info">
@@ -24,7 +27,47 @@ export default function renderHtmlMurkup({ hits }) {
                   </div>
               </div>
           </a>`
-      )
-      .join('');
-    refs.markupEl.insertAdjacentHTML('beforeend', markup);
+    )
+    .join('');
+  refs.markupEl.insertAdjacentHTML('beforeend', markup);
+}
+
+let gallery = null;
+
+const galleryAllImages = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  animationSpeed: 300,
+  fadeSpeed: 350,
+});
+
+function createLightBox() {
+  if (!gallery) {
+    gallery = new SimpleLightbox('.gallery a', {
+      captionsData: 'alt',
+      captionDelay: 250,
+      animationSpeed: 300,
+      fadeSpeed: 350,
+      close: false,
+    });
   }
+  gallery.refresh();
+}
+
+// const handClick = e.target.nodeName;
+// if (handClick !== 'IMG') {
+//   return;
+// }
+
+function smoothScroll() {
+  const { height: cardHeight } = document
+    .querySelector('.gallery')
+    .firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
+}
+
+export default { renderHtmlMurkup, createLightBox, smoothScroll };
