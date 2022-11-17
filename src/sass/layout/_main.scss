@@ -1,22 +1,24 @@
 .main .container {
-  padding-top: 115px;
-  padding-bottom: 115px;
+  padding-top: 90px;
+  padding-bottom: 75px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 110px;
+    padding-bottom: 115px;
+  }
 }
 
 .main__section {
-  // padding-top: 115px;
-  padding-bottom: 15px;
+  margin-bottom: 15px;
 
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    // padding-top: 115px;
-    padding-bottom: 15px;
+    margin-bottom: 20px;
   }
 
   @media screen and (min-width: 1280px) {
-    // padding-top: 130px;
-    padding-bottom: 30px;
+    margin-bottom: 25px;
   }
 }
 
@@ -35,7 +37,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 }
 
@@ -81,21 +83,6 @@
   }
 }
 
-// .gallery {
-//   display: flex;
-//   flex-direction: column;
-
-//   @media screen and (min-width: 768px) {
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     gap: 30px;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-
-//   }
-// }
-
 :root {
   --indent: 20px;
 }
@@ -132,20 +119,27 @@
   }
 }
 
-.searchbtns {
+.search-form .btn {
   display: inline-flex;
   align-items: center;
 
   @media screen and (max-width: 768px) {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
   }
 }
 
-.disablet {
-  display: none;
+// .endGallery {
+//   display: none;
+// }
+
+//кнопочка load-more
+.btn__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.endGallery {
+.btn--disablet {
   display: none;
 }
 
@@ -165,14 +159,19 @@
   background-size: 300%;
   transition: all 0.6s;
   margin-top: 5px;
-  
 
-}
-
-.pink {
   color: pink;
   background-image: linear-gradient(20deg, white 50%, pink 50%);
+
+  @media screen and (min-width: 768px) {
+    margin-top: 10px;
+  }
 }
+
+// .pink {
+//   color: pink;
+//   background-image: linear-gradient(20deg, white 50%, pink 50%);
+// }
 
 .btn:hover {
   color: #fff;
@@ -185,8 +184,15 @@
   box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 0.75);
 }
 
-// .load-more {
-  // margin-left: auto;
-  // margin-right: auto;
-  // margin-left: 42%;
-// }
+.info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: rgb(46, 41, 41);
+}

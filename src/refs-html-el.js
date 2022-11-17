@@ -1,8 +1,8 @@
 export const refs = {
   markupEl: document.querySelector('.gallery'),
   formSubmitEl: document.querySelector('#search-form'),
-  loadMoreBtn: document.querySelector('.load-more'),
+  loadMoreBtn: document.querySelector('.btn--disablet'),
 
   inputValue: document.querySelector('.search__input'),
-  messageEndImg: document.querySelector('.endGallery'),
+  // messageEndImg: document.querySelector('.endGallery'),
 };
