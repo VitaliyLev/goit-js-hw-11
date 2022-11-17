@@ -32,7 +32,6 @@
   margin-bottom: 10px;
 
   @media screen and (min-width: 768px) {
-
   }
 
   @media screen and (min-width: 1280px) {
@@ -82,21 +81,54 @@
   }
 }
 
+// .gallery {
+//   display: flex;
+//   flex-direction: column;
 
+//   @media screen and (min-width: 768px) {
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     gap: 30px;
+//   }
+
+//   @media screen and (min-width: 1280px) {
+
+//   }
+// }
+
+:root {
+  --indent: 20px;
+}
 
 .gallery {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--indent);
+  // gap: 20;
+}
 
+.gallery__link {
+  width: 100%;
+}
 
-  @media screen and (min-width: 768px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
+@media screen and (max-width: 767px) {
+  .gallery__link {
+    flex-direction: column;
   }
+  .imgsize {
+    height: 100%;
+  }
+}
 
-  @media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
+  .gallery__link {
+    flex-basis: calc((100% - var(--indent) * (2 - 1)) / 2);
+  }
+}
 
+@media screen and (min-width: 1280px) {
+  .gallery__link {
+    flex-basis: calc((100% - var(--indent) * (4 - 1)) / 4);
   }
 }
 
@@ -113,7 +145,48 @@
   display: none;
 }
 
-
 .endGallery {
   display: none;
 }
+
+.btn {
+  border-radius: 50px;
+  // text-transform: uppercase;
+  position: relative;
+  text-decoration: none;
+  // display: flex;
+  align-items: left;
+  justify-content: center;
+  border: 1.5px solid #575756;
+  // border: 1.5px solid black;
+  // padding: 1rem 2rem;
+  padding: 12px 24px;
+  // font-size: 3rem;
+  background-size: 300%;
+  transition: all 0.6s;
+  margin-top: 5px;
+  
+
+}
+
+.pink {
+  color: pink;
+  background-image: linear-gradient(20deg, white 50%, pink 50%);
+}
+
+.btn:hover {
+  color: #fff;
+  background-position: 100%;
+  transform: translateX(0.5rem);
+}
+
+.btn:active {
+  transform: translate(0.5rem, 0.5rem);
+  box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 0.75);
+}
+
+// .load-more {
+  // margin-left: auto;
+  // margin-right: auto;
+  // margin-left: 42%;
+// }

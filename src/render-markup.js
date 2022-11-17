@@ -18,7 +18,7 @@ function renderHtmlMurkup({ hits }) {
       }) =>
         `<a class="gallery__link" href="${largeImageURL}">
               <div class="photo-card">
-                  <img src="${webformatURL}" alt="${tags}" loading="lazy" width="220" height="240"/>
+                  <img class="imgsize" src="${webformatURL}" alt="${tags}" loading="lazy" height="200"/>
                   <div class="info">
                       <p class="info-item"><b>Likes</b>${likes}</p>
                       <p class="info-item"><b>Views</b>${views}</p>
@@ -31,6 +31,7 @@ function renderHtmlMurkup({ hits }) {
     .join('');
   refs.markupEl.insertAdjacentHTML('beforeend', markup);
 }
+// width="220" height="240"
 
 let gallery = null;
 
