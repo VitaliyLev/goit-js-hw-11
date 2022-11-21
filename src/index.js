@@ -28,7 +28,6 @@ function handleBtnLoadMore(e) {
   e.preventDefault();
   responseApiImg.incrementPage();
   renderImgBtnLoadMore();
-  // Utils.smoothScroll();
 }
 
 function handleInputSearchClick(e) {
@@ -80,6 +79,7 @@ async function renderImgBtnLoadMore() {
     }
     renderHtmlMurkup(mark);
     Utils.createLightBox();
+    Utils.smoothScroll();
   } catch (error) {
     console.log(error.message);
   }
