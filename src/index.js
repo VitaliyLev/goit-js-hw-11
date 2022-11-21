@@ -4,7 +4,6 @@ import { refs } from './js/refs-html-el';
 import ApiImagesRequest from './js/api-get-gallery';
 import renderHtmlMurkup from './js/render-markup';
 import Utils from './js/utils.js';
-import utils from './js/utils.js';
 
 const responseApiImg = new ApiImagesRequest();
 
