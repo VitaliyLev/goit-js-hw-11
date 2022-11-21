@@ -10,7 +10,7 @@ const responseApiImg = new ApiImagesRequest();
 function handleSubmit(e) {
   e.preventDefault();
   refs.markupEl.innerHTML = '';
-  refs.loadMoreBtn.classList.add('btn--disablet');
+  refs.loadMoreBtn.classList.add('btn--disabled');
   responseApiImg.resetPage();
   responseApiImg.searchValue = e.target.elements.searchQuery.value.trim();
 
@@ -35,7 +35,7 @@ function handleInputSearchClick(e) {
   const inputValuee = e.target.value.trim();
   if (inputValuee === '') {
     refs.markupEl.innerHTML = '';
-    refs.loadMoreBtn.classList.add('btn--disablet');
+    refs.loadMoreBtn.classList.add('btn--disabled');
     return;
   }
 }
@@ -59,7 +59,7 @@ async function renderImgBtnSearch() {
     Utils.createLightBox();
 
     setTimeout(() => {
-      refs.loadMoreBtn.classList.remove('btn--disablet');
+      refs.loadMoreBtn.classList.remove('btn--disabled');
     }, 1000);
   } catch (error) {
     console.log(error.message);
@@ -73,7 +73,7 @@ async function renderImgBtnLoadMore() {
     if (
       responseApiImg.page > Math.ceil(mark.totalHits / responseApiImg.perPage)
     ) {
-      refs.loadMoreBtn.classList.add('btn--disablet');
+      refs.loadMoreBtn.classList.add('btn--disabled');
       Notify.info(`We're sorry, but you've reached the end of search results.`);
       return;
     }
