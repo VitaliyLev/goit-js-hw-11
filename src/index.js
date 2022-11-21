@@ -21,6 +21,7 @@ function handleSubmit(e) {
     );
     return;
   }
+  temp = false;
   renderImgBtnSearch();
 }
 
@@ -91,3 +92,38 @@ refs.inputValue.addEventListener(
   'input',
   debounce(handleInputSearchClick, 250)
 );
+
+// infinity scroll
+//або кнопка load-more
+document.addEventListener('scroll', debounce(handleScroll, 150));
+
+let temp = false;
+
+function handleScroll(e) {
+  const heigth =
+    e.target.documentElement.scrollHeight - e.target.documentElement.scrollTop;
+  refs.loadMoreBtn.classList.add('btn--disabled');
+
+  if (heigth < 1000 && !temp) {
+    renderScrollGallery();
+    responseApiImg.incrementPage();
+  }
+}
+
+async function renderScrollGallery() {
+  try {
+    const mark = await responseApiImg.getImages();
+
+    if (
+      responseApiImg.page > Math.ceil(mark.totalHits / responseApiImg.perPage)
+    ) {
+      Notify.info(`We're sorry, but you've reached the end of search results.`);
+      temp = true;
+      return;
+    }
+    renderHtmlMurkup(mark);
+    Utils.createLightBox();
+  } catch (error) {
+    console.log(error.message);
+  }
+}
